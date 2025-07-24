@@ -3,6 +3,7 @@ package com.example.BlogPlatform.mappers;
 
 import com.example.BlogPlatform.domain.PostStatus;
 import com.example.BlogPlatform.domain.dto.CategoryDto;
+import com.example.BlogPlatform.domain.dto.CreateCategoryRequest;
 import com.example.BlogPlatform.domain.entities.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,4 +22,6 @@ public interface CategoryMapper {
                 .filter(post -> PostStatus.Published.equals((post.getStatus())))
                 .count();
     }
+
+    Category toEntity(CreateCategoryRequest createCategoryRequest);
 }
